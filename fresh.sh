@@ -8,6 +8,13 @@ if test ! $(which brew); then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        # ...
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	xcode-select --install
+fi
+
+
 # Update Homebrew recipes
 brew tap homebrew/cask
 brew tap homebrew/core
@@ -15,8 +22,9 @@ brew tap homebrew/cask-fonts
 brew tap bramstein/webfonttools
 brew tap homebrew/cask-versions
 
-# Binaries
+# Utilities 
 brew install awscli
+brew install ctags
 brew install coreutils
 brew install moreutils
 brew install findutils
@@ -34,6 +42,11 @@ brew install tree
 brew install zlib
 
 # Development
+brew install python
+brew install mono
+brew install go
+brew install nodejs
+brew install java
 brew install php
 brew install composer
 brew install imagemagick
@@ -44,20 +57,28 @@ brew install nginx
 brew install node
 brew install redis
 brew install yarn
-
-brew install --cask caffeine
-brew install --cask 'sequel-pro'
-brew install --cask firefox
-brew install --cask google-chrome
 brew install --cask github
 brew install --cask imageoptim
 brew install --cask java
-brew install --cask phpstorm
-brew install --cask sublime-text
 brew install --cask spectacle
 brew install --cask 'the-unarchiver'
 brew install --cask deluge
 brew install --cask forklift
+brew install --cask db-browser-for-sqlite
+brew install --cask iterm2
+brew install --cask caffeine
+brew install --cask 'sequel-pro'
+
+# Web Browsers
+brew install --cask firefox
+brew install --cask google-chrome
+
+# Editors
+brew install --cask phpstorm
+brew install --cask sublime-text
+brew install macvim
+
+# Media
 brew install --cask vlc
 
 if test $USER = 'jon'; then
